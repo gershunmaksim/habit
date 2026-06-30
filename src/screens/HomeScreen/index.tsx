@@ -12,7 +12,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView className="flex-1 justify-between bg-white">
       <View className="flex-1 items-center justify-center mt-[0px]">
-        <Text className="text-[10px] ">Health monitoring</Text>
+        <Text className="text-22 text-blue-600">Health monitoring</Text>
       </View>
     </SafeAreaView>
   )
