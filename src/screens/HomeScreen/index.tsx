@@ -1,4 +1,4 @@
-import { RootStackScreenProps } from "navigation/types"
+import { TabScreenProps } from "navigation/types"
 import React from "react"
 import { Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
@@ -8,9 +8,9 @@ import ThermometerIcon from "assets/img/thermometer.svg"
 import HeartIcon from "assets/img/heart.svg"
 import CardItemComponent from "components/CardItemComponent"
 
-type Props = RootStackScreenProps<"home">
+type Props = TabScreenProps<"home">
 
-const HomeScreen: React.FC<Props> = ({ navigation }) => {
+const HomeScreen: React.FC<Props> = () => {
   const handleGoNextScreen = () => {
     // 
   }
