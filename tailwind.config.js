@@ -11,6 +11,10 @@ module.exports = {
     extend: {
       colors: {
         mainBlack: "#000000",
+        white1: "#FFFFFF",
+        green1: "#334B37",
+        blue1: "#0000FF",
+        orange1: "#F6D790",
       },
       fontSize: {
         "12": [12, { lineHeight: "15px" }],
