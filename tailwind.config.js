@@ -19,15 +19,16 @@ module.exports = {
       fontSize: {
         "12": [12, { lineHeight: "15px" }],
         "16": 16,
+        "18": [18, { lineHeight: "26px" }],
         "22": 22,
         "30": 30,
       },
-      //TO DO: Неправильна назва шрифту, через що вони й не працюють(треба через тире)
+     
       fontFamily: {
-        sans400: "DMSans_Regular",
-        sans500: "DMSans_Medium",
-        sans600: "DMSans_SemiBold",
-        sans700: "DMSans_Bold",
+        sans400: "DMSans-Regular",
+        sans500: "DMSans-Medium",
+        sans600: "DMSans-SemiBold",
+        sans700: "DMSans-Bold",
       },
     },
   },
