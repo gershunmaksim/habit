@@ -1,3 +1,8 @@
+//TO DO: Робити правильний порядок import
+// React Native and Components
+//Libraries
+//Hooks and Redux
+//styles and Icons
 import { TabScreenProps } from "navigation/types"
 import React from "react"
 import { Text, View } from "react-native"
@@ -16,7 +21,9 @@ const HomeScreen: React.FC<Props> = () => {
   }
   return (
     <SafeAreaView className="flex-1 bg-white1">
+      {/* TO DO: Що за пустий mt? Виправити або поправити. items-left зайвий + Я казав ж винести весь цей блок в компонент HeaderComponent */}  
       <View className="items-left  mt-[px]">
+        {/* TO DO: margin задавай блоку вище, а не тексту */}
         <Text className="text-18 text-green1 ml-[24px] mb-[25px]">Health monitoring</Text>
       </View>
 

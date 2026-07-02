@@ -22,6 +22,7 @@ module.exports = {
         "22": 22,
         "30": 30,
       },
+      //TO DO: Неправильна назва шрифту, через що вони й не працюють(треба через тире)
       fontFamily: {
         sans400: "DMSans_Regular",
         sans500: "DMSans_Medium",
