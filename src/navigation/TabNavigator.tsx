@@ -9,6 +9,12 @@ import StatsScreen from "screens/StatsScreen"
 
 import { ROUTES } from "./routes"
 import type { TabParamList } from "./types"
+import { View } from "react-native"
+import clsx from "clsx"
+import CalendarIcon from "assets/icons/Calendar.svg"
+import HealthIcon from "assets/icons/Health.svg"
+import HistoryIcon from "assets/icons/History.svg"
+import SettingsIcon from "assets/icons/Settings.svg"
 
 const Tab = createBottomTabNavigator<TabParamList>()
 
@@ -19,22 +25,34 @@ const TabNavigator = () => {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          backgroundColor: "#ffffff",
-          borderTopWidth: 1,
-          borderTopColor: "#F0F0F0",
-          height: 64,
+          justifyContent: "center",
+          alignItems: "center",
+          height: 68,
+          marginBottom: 32,
+          borderRadius: 40,
+          marginHorizontal: 24,
+          backgroundColor: "#3E414C",
         },
-        tabBarIcon: ({ focused, color, size }) => {
-          const icons: Record<string, [string, string]> = {
-            [ROUTES.HomeScreen]: ["home", "home-outline"],
-            [ROUTES.StatsScreen]: ["bar-chart", "bar-chart-outline"],
-            [ROUTES.CalendarScreen]: ["calendar", "calendar-outline"],
-            [ROUTES.ProfileScreen]: ["person", "person-outline"],
+        
+        tabBarIcon: ({ focused }) => {
+          const icons = {
+            [ROUTES.HomeScreen]: HealthIcon,
+            [ROUTES.StatsScreen]: HistoryIcon,
+            [ROUTES.CalendarScreen]: CalendarIcon,
+            [ROUTES.ProfileScreen]: SettingsIcon,
           }
-          const [active, inactive] = icons[route.name] ?? ["home", "home-outline"]
-          return <Icon name={focused ? active : inactive} size={24} color={color} />
+
+          const IconComponent = icons[route.name]
+
+          return (
+            <View className={clsx("items-center justify-center mt-[25px] w-[50px] h-[50px] rounded-full", focused ? "bg-blue1" : "bg-transparent")}>
+              <IconComponent
+                {...(focused ? { stroke: "#FFFFFF" } : {})}
+              />
+            </View>
+          )
         },
-        tabBarActiveTintColor: "#000000",
+        tabBarActiveTintColor: "#ffffff",
         tabBarInactiveTintColor: "#BDBDBD",
       })}
     >

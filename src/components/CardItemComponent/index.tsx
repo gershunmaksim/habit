@@ -26,20 +26,24 @@ const CardItemComponent = ({
   }: CardItemComponentProps
 ) => {
   return (
-    <View className={clsx("w-[156px] h-[210px] bg-blue1 rounded-[15px]", classNameCard)}>
-      <View className="flex-row items-center justify-between pt-[16px] px-[16px]">
-        <Text className={clsx("text-12", classNameTitle ?? "text-white1")}>{title}</Text>
+    <View
+      style={{
+        flexGrow: 1,
+      }}
+      className={clsx("p-[16px] bg-blue1 rounded-[15px]", classNameCard)}>
+      <View className="flex-row items-center justify-between ">
+        <Text className={clsx("text-12 text-sans700", classNameTitle ?? "text-white1")}>{title}</Text>
         {isRightElement && <Text className={clsx("text-12", classNameTitle ?? "text-white1")}>{isRightElement}</Text>}
       </View>
-      <View className="mt-[13px] ml-[15px] items-left justify-center ">
+      <View className="mt-[13px] items-left justify-center ">
         <Icon />
       </View>
-      <View className="flex-row items-center justify-left ml-[16px] pt-[16px]">
+      <View className="flex-row items-center justify-left">
         <Text className={clsx("text-16", classNameTitle ?? "text-white1")}>
           {subtitle}
         </Text>
       </View>
-      <View className="flex-row items-center justify-between pt-[4px] px-[16px]">
+      <View className="flex-row items-center justify-between">
         <Text className={clsx("text-12", classNameTitle ?? "text-white1")}>
           {time}
         </Text>

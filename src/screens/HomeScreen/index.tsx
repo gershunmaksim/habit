@@ -17,10 +17,10 @@ const HomeScreen: React.FC<Props> = () => {
   return (
     <SafeAreaView className="flex-1 bg-white1">
       <View className="items-left  mt-[px]">
-        <Text className="text-18 text-green1">Health monitoring</Text>
+        <Text className="text-18 text-green1 ml-[24px] mb-[25px]">Health monitoring</Text>
       </View>
 
-      <View className="flex-row align-center justify-between flex-wrap gap-[15px] px-[24px]">
+      <View className="flex-row align-center flex-wrap gap-[15px] px-[24px]">
         <CardItemComponent 
           title={"MOOD"} 
           Icon={SmileIcon}
