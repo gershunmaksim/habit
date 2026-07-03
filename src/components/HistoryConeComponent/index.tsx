@@ -26,20 +26,17 @@ const HistoryConeComponent = ({
       boxShadow: "0px 2px 8px rgba(0,0,0,0.08)",
       marginBottom: 20,
     }}
-    className="flex-row items-center justify-between mx-[24px] py-[13px] pl-[16px] pr-[21px] rounded-[10px] border-[1px] border-white1">
-      {/* TO DO: В Tailwind винесено ширину бордера, закруглення тощо. Писати можна тепер просто border-1, а не border-[1px] */ }
+    className="flex-row items-center justify-between mx-[24px] py-[13px] pl-[16px] pr-[21px] rounded-10 border-1 border-white1">
       <View className="flex-row items-center">
         <View className="mr-[15px]">
           <Icon/>
         </View>
         <View>
-          {/* TO DO: Жирнiсть не як на макетi */}
-          <Text className="text-gray1 text-16">{title}</Text>
+          <Text className="text-gray1 font-sans500  text-16">{title}</Text>
         </View>
       </View>
       <View>
-        {/* TO DO: Жирнiсть не як на макетi */}
-        <Text className="text-gray1 text-16">{subtitle}</Text>
+        <Text className="text-gray1 font-sans500 text-16">{subtitle}</Text>
       </View>
     </View>
   ) 
