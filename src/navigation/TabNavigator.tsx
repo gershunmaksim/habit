@@ -21,6 +21,7 @@ const Tab = createBottomTabNavigator<TabParamList>()
 const TabNavigator = () => {
   return (
     <Tab.Navigator
+      initialRouteName={ROUTES.HomeScreen}
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: false,
@@ -56,10 +57,9 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: "#BDBDBD",
       })}
     >
-      {/* TO DO: Уважно дивись макет. Треба виставити правильний порядок екранiв на таббарi. Перший буде CalendarScreen */}
+      <Tab.Screen name={ROUTES.CalendarScreen} component={CalendarScreen} />
       <Tab.Screen name={ROUTES.HomeScreen} component={HomeScreen} />
       <Tab.Screen name={ROUTES.StatsScreen} component={StatsScreen} />
-      <Tab.Screen name={ROUTES.CalendarScreen} component={CalendarScreen} />
       <Tab.Screen name={ROUTES.ProfileScreen} component={ProfileScreen} />
     </Tab.Navigator>
   )

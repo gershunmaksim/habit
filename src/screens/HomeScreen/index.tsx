@@ -1,17 +1,17 @@
-//TO DO: Робити правильний порядок import
 // React Native and Components
-//Libraries
-//Hooks and Redux
-//styles and Icons
-import { TabScreenProps } from "navigation/types"
 import React from "react"
 import { Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
+import HeaderComponent from "components/HeaderComponent"
+//Libraries
+import { TabScreenProps } from "navigation/types"
+import CardItemComponent from "components/CardItemComponent"
+//Hooks and Redux
+//styles and Icons
 import SmileIcon from "assets/img/smile.svg"
 import FootstepIcon from "assets/img/footstep.svg"
 import ThermometerIcon from "assets/img/thermometer.svg"
 import HeartIcon from "assets/img/heart.svg"
-import CardItemComponent from "components/CardItemComponent"
 
 type Props = TabScreenProps<"home">
 
@@ -21,11 +21,10 @@ const HomeScreen: React.FC<Props> = () => {
   }
   return (
     <SafeAreaView className="flex-1 bg-white1">
-      {/* TO DO: Що за пустий mt? Виправити або поправити. items-left зайвий + Я казав ж винести весь цей блок в компонент HeaderComponent */}  
-      <View className="items-left  mt-[px]">
-        {/* TO DO: margin задавай блоку вище, а не тексту */}
-        <Text className="text-18 text-green1 ml-[24px] mb-[25px]">Health monitoring</Text>
-      </View>
+        <HeaderComponent 
+         title={"Health monitoring"}
+         isArrowLeft
+         />
 
       <View className="flex-row align-center flex-wrap gap-[15px] px-[24px]">
         <CardItemComponent 
@@ -43,6 +42,9 @@ const HomeScreen: React.FC<Props> = () => {
           time={"last update 3d"}
           classNameCard={"bg-orange1"}
           classNameTitle={"text-mainBlack"}
+          classNameSubtitle={"text-mainBlack"}
+          classNameTime={"text-mainBlack"}
+          classNameHistory={"text-mainBlack"}
         />
         <CardItemComponent 
           title={"TEMPERATURE"} 
@@ -51,6 +53,9 @@ const HomeScreen: React.FC<Props> = () => {
           time={"last update 3d"} 
           classNameCard={"bg-orange1"}
           classNameTitle={"text-mainBlack"}
+          classNameSubtitle={"text-mainBlack"}
+          classNameTime={"text-mainBlack"}
+          classNameHistory={"text-mainBlack"}
         />
         <CardItemComponent 
           title={"BLOOD PRESSURE"} 
