@@ -21,7 +21,7 @@ const Tab = createBottomTabNavigator<TabParamList>()
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      initialRouteName={ROUTES.HomeScreen}
+      initialRouteName={ROUTES.StatsScreen}
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: false,
