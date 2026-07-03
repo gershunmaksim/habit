@@ -14,12 +14,12 @@ const StatsScreen: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <HeaderComponent 
-         title={"History"}
-         />
+        title={"History"}
+        />
       <HistoryConeComponent
-         Icon={GreenConeIcon}
-         title={"21 March 12:54"}
-         subtitle={"9.0 MMOL"}
+        Icon={GreenConeIcon}
+        title={"21 March 12:54"}
+        subtitle={"9.0 MMOL"}
       />      
       <HistoryConeComponent
         Icon={RedConeIcon}
