@@ -16,6 +16,7 @@ module.exports = {
         blue1: "#0000FF",
         orange1: "#F6D790",
         gray1: "#4C5980",
+        gray2: "#8E8E93",
       },
       fontSize: {
         "12": [12, { lineHeight: "15px" }],
