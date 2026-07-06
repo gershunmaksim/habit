@@ -42,8 +42,7 @@ const SettingsItemComponent = ({
           </Text>
         </View>
       </View>
-      {/* : Прибери mr-[24px], воно на головному екранi задаватиметься в SafeAreaView. Нiколи по кривому так не робити, що там вiдступ злiва, а там справа */}
-      <View className="flex-row items-center mr-[24px]">
+      <View className="flex-row items-center">
         {subtitle && (
           <Text className="text-gray1 font-sans500 text-16">
             {subtitle}

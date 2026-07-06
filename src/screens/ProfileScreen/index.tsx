@@ -15,7 +15,7 @@ import PillsIcon from "assets/img/pills-alert.png";
 
 const ProfileScreen: React.FC = () => {
   return (
-    <SafeAreaView className="flex-1 bg-white ml-[24px]">
+    <SafeAreaView className="flex-1 bg-white px-[24px]">
 
       <HeaderComponent title="Settings" />
       <LabelComponent
