@@ -25,18 +25,15 @@ const SettingsItemComponent = ({
 }: Props) => {
   return (
     <View className="flex-row justify-between items-center mt-[24px] ml-[24px]">
-
-    
-
-      {/* LEFT SIDE */}
+      {/* TO DO: Прибери ml-[24px], воно на головному екранi задаватиметься в SafeAreaView. Нiколи по кривому так не робити, що там вiдступ злiва, а там справа */}
       <View className="flex-row items-center">
         {SvgIcon ? (
           <SvgIcon />
         ) : Image ? (
           <RNImage
             source={Image}
-            style={{ width: 48, height: 48 }}
             resizeMode="contain"
+            className="w-[48px] h-[48px]"
           />
         ) : null}
 
@@ -46,18 +43,15 @@ const SettingsItemComponent = ({
           </Text>
         </View>
       </View>
-
-      {/* RIGHT SIDE */}
+      {/* TO DO: Прибери mr-[24px], воно на головному екранi задаватиметься в SafeAreaView. Нiколи по кривому так не робити, що там вiдступ злiва, а там справа */}
       <View className="flex-row items-center mr-[24px]">
         {subtitle && (
           <Text className="text-gray1 font-sans500 text-16">
             {subtitle}
           </Text>
         )}
-
         {Icon && <Icon />}
       </View>
-
     </View>
   );
 };

@@ -17,7 +17,8 @@ const ProfileScreen: React.FC = () => {
     <SafeAreaView className="flex-1 bg-white">
 
       <HeaderComponent title="Settings" />
-
+      {/* TO DO: Винести в компонент можна, воно ж повторюватиметься. Назва буде наприклад LabelComponent */}
+      {/* TO DO: Ще одне: якщо вiдступи по боках олнаковi всюди - то треба pl задавати в SafeAreaView загальний. Щоб не писати багато разів одне й те саме: ml-[24px] тощо  */}
       <View className="ml-[24px]">
         <Text className="text-base text-gray2 font-sans400">
           Special Settings
@@ -30,7 +31,7 @@ const ProfileScreen: React.FC = () => {
         SvgIcon={UnitIcon}
         Icon={RightArrowIcon}
       />
-
+      {/* TO DO: LabelComponent */}
       <View className="ml-[24px] mt-[24px]">
         <Text className="text-base text-gray2 font-sans400">
           General Settings
@@ -48,7 +49,7 @@ const ProfileScreen: React.FC = () => {
         SvgIcon={LanguageIcon}
         Icon={RightArrowIcon}
       />
-
+      {/* TO DO: LabelComponent */}
       <View className="ml-[24px] mt-[24px]">
         <Text className="text-base text-gray2 font-sans400">
           Our other applications
