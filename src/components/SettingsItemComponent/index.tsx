@@ -24,8 +24,7 @@ const SettingsItemComponent = ({
   Icon,
 }: Props) => {
   return (
-    <View className="flex-row justify-between items-center mt-[24px] ml-[24px]">
-      {/* TO DO: Прибери ml-[24px], воно на головному екранi задаватиметься в SafeAreaView. Нiколи по кривому так не робити, що там вiдступ злiва, а там справа */}
+    <View className="flex-row justify-between items-center mt-[24px]">
       <View className="flex-row items-center">
         {SvgIcon ? (
           <SvgIcon />
@@ -43,7 +42,7 @@ const SettingsItemComponent = ({
           </Text>
         </View>
       </View>
-      {/* TO DO: Прибери mr-[24px], воно на головному екранi задаватиметься в SafeAreaView. Нiколи по кривому так не робити, що там вiдступ злiва, а там справа */}
+      {/* : Прибери mr-[24px], воно на головному екранi задаватиметься в SafeAreaView. Нiколи по кривому так не робити, що там вiдступ злiва, а там справа */}
       <View className="flex-row items-center mr-[24px]">
         {subtitle && (
           <Text className="text-gray1 font-sans500 text-16">
