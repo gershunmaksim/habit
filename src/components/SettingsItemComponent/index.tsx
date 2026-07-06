@@ -1,3 +1,4 @@
+import ToggleComponent from "components/ToggleComponent";
 import React from "react";
 import {
   View,
@@ -11,8 +12,10 @@ import { SvgProps } from "react-native-svg";
 type Props = {
   title: string;
   subtitle?: string;
-  Toggle?: boolean;
+  isToggle?: boolean;
   onPress?: () => void
+  value?: boolean;
+  onChange?: (val: boolean) => void;
   SvgIcon?: React.FC<SvgProps>;
   Image?: ImageSourcePropType;
   Icon?: React.FC<SvgProps>;
@@ -25,6 +28,9 @@ const SettingsItemComponent = ({
   SvgIcon,
   Image,
   Icon,
+  isToggle,
+  value,
+  onChange,
 }: Props) => {
   return (
     <TouchableOpacity onPress={onPress} className="flex-row justify-between items-center mt-[24px]">
@@ -52,6 +58,7 @@ const SettingsItemComponent = ({
           </Text>
         )}
         {Icon && <Icon />}
+        {isToggle && <ToggleComponent value={value} onChange={onChange}/>}
       </View>
     </TouchableOpacity>
   );

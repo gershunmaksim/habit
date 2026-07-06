@@ -12,6 +12,7 @@ export type TabParamList = {
 
 export type RootStackParamList = {
   MainTabs: undefined
+  [ROUTES.LanguagesScreen]: undefined
 }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

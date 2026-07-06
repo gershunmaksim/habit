@@ -6,7 +6,7 @@ type Props = {
   onChange?: (val: boolean) => void;
 };
 
-const Toggle = ({ value = false, onChange }: Props) => {
+const ToggleComponent = ({ value = false, onChange }: Props) => {
   const [isEnabled, setIsEnabled] = useState(value);
 
   const toggle = () => {
@@ -40,4 +40,4 @@ const Toggle = ({ value = false, onChange }: Props) => {
   );
 };
 
-export default Toggle;
+export default ToggleComponent;
