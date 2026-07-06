@@ -2,6 +2,7 @@ import React from "react";
 import {
   View,
   Text,
+  TouchableOpacity,
   Image as RNImage,
   ImageSourcePropType,
 } from "react-native";
@@ -11,6 +12,7 @@ type Props = {
   title: string;
   subtitle?: string;
   Toggle?: boolean;
+  onPress?: () => void
   SvgIcon?: React.FC<SvgProps>;
   Image?: ImageSourcePropType;
   Icon?: React.FC<SvgProps>;
@@ -19,12 +21,13 @@ type Props = {
 const SettingsItemComponent = ({
   title,
   subtitle,
+  onPress,
   SvgIcon,
   Image,
   Icon,
 }: Props) => {
   return (
-    <View className="flex-row justify-between items-center mt-[24px]">
+    <TouchableOpacity onPress={onPress} className="flex-row justify-between items-center mt-[24px]">
       <View className="flex-row items-center">
         {SvgIcon ? (
           <SvgIcon />
@@ -50,7 +53,7 @@ const SettingsItemComponent = ({
         )}
         {Icon && <Icon />}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
