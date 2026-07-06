@@ -22,7 +22,7 @@ const HeaderComponent = ({
 }: HeaderComponentProps
 ) => {
   return (
-    <View className="flex-row align-center ml-[24px] mb-[25px]">
+    <View className="flex-row align-center ">
       {isArrowLeft && (
         <TouchableOpacity className="flex-row align-center mr-[12px]" onPress={onPressArrowLeft}>
           <BackArrowIcon/>

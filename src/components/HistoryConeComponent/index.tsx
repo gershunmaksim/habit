@@ -1,6 +1,6 @@
 // React Native and Components
 import React from "react"
-import { View, Text, TouchableOpacity } from "react-native"
+import { View, Text } from "react-native"
 import { SvgProps } from "react-native-svg"
 //Libraries
 //Hooks and Redux
