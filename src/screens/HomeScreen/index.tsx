@@ -4,14 +4,17 @@ import { Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import HeaderComponent from "components/HeaderComponent"
 //Libraries
+// TO DO: Import не в тому мiсцi - це компонент та тип
 import { TabScreenProps } from "navigation/types"
 import CardItemComponent from "components/CardItemComponent"
 //Hooks and Redux
+//Helpers and Types
 //styles and Icons
 import SmileIcon from "assets/img/smile.svg"
 import FootstepIcon from "assets/img/footstep.svg"
 import ThermometerIcon from "assets/img/thermometer.svg"
 import HeartIcon from "assets/img/heart.svg"
+// TO DO: Import не в тому мiсцi - це до хукiв
 import { useNavigation } from "@react-navigation/native"
 
 type Props = TabScreenProps<"home">

@@ -17,6 +17,7 @@ const LabelComponent = ({
   return (
     <View className="mt-[24px]">
       <Text className="text-base text-gray2 font-sans400">
+        {/* TO DO: Тут треба зробити через clsx та додати пропс на стиль для тайтла. Тут тим бiльш помилка: text-base! Не по макету*/}
         {title}
       </Text>
     </View>

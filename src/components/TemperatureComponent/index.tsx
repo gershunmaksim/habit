@@ -27,7 +27,7 @@ const TemperatureComponent = ({
       boxShadow: "0px 2px 8px rgba(0,0,0,0.08)",
       marginBottom: 20,
     }}
-    className=" py-[13px] pl-[16px] pr-[21px] rounded-10 border-1 border-white1">
+    className="py-[13px] pl-[16px] pr-[21px] rounded-10 border-1 border-white1">
     <View className="flex-row justify-between">
       <View>
         <Text className="text-20 text-green1">{title}</Text>
