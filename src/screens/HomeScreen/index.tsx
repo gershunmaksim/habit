@@ -12,21 +12,26 @@ import SmileIcon from "assets/img/smile.svg"
 import FootstepIcon from "assets/img/footstep.svg"
 import ThermometerIcon from "assets/img/thermometer.svg"
 import HeartIcon from "assets/img/heart.svg"
+import { useNavigation } from "@react-navigation/native"
 
 type Props = TabScreenProps<"home">
 
 const HomeScreen: React.FC<Props> = () => {
+  const navigation = useNavigation()
   const handleGoNextScreen = () => {
     // 
   }
+  const handleGoTemperatureScreen = () => {
+    navigation.navigate("temperature")
+  }
   return (
-    <SafeAreaView className="flex-1 bg-white1">
+    <SafeAreaView className="flex-1 bg-white1 px-[24px]">
         <HeaderComponent 
          title={"Health monitoring"}
          isArrowLeft
          />
 
-      <View className="flex-row align-center flex-wrap gap-[15px] px-[24px]">
+      <View className="flex-row align-center flex-wrap gap-[15px] mt-[24px]">
         <CardItemComponent 
           title={"MOOD"} 
           Icon={SmileIcon}
@@ -56,6 +61,7 @@ const HomeScreen: React.FC<Props> = () => {
           classNameSubtitle={"text-mainBlack"}
           classNameTime={"text-mainBlack"}
           classNameHistory={"text-mainBlack"}
+          onPress={handleGoTemperatureScreen}
         />
         <CardItemComponent 
           title={"BLOOD PRESSURE"} 

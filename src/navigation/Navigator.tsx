@@ -4,6 +4,7 @@ import TabNavigator from "./TabNavigator"
 import type { RootStackParamList } from "./types"
 import LanguagesScreen from "screens/LanguagesScreen"
 import { ROUTES } from "navigation/routes"
+import TemperatureScreen from "screens/TemperatureScreen "
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -14,6 +15,10 @@ const Navigator = () => {
       <Stack.Screen
         name={ROUTES.LanguagesScreen}
         component={LanguagesScreen}
+      />
+      <Stack.Screen
+        name={ROUTES.TemperatureScreen}
+        component={TemperatureScreen}
       />
     </Stack.Navigator>
   )
