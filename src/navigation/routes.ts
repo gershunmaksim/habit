@@ -4,6 +4,7 @@ export const ROUTES = {
   CalendarScreen: "calendar",
   ProfileScreen: "profile",
   LanguagesScreen: "languages",
+  TemperatureScreen: "temperature",
 } as const
 
 type valueof<T> = T[keyof T]

@@ -13,6 +13,7 @@ export type TabParamList = {
 export type RootStackParamList = {
   MainTabs: undefined
   [ROUTES.LanguagesScreen]: undefined
+  [ROUTES.TemperatureScreen]: undefined
 }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
