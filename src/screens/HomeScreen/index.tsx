@@ -26,6 +26,9 @@ const HomeScreen: React.FC<Props> = () => {
   const handleGoWeightScreen = () => {
     navigation.navigate("weight")
   }
+  const handleGoPressureScreen = () => {
+    navigation.navigate("pressure")
+  }
   return (
     <SafeAreaView className="flex-1 bg-white1 px-[24px]">
         <HeaderComponent 
@@ -71,6 +74,7 @@ const HomeScreen: React.FC<Props> = () => {
           Icon={HeartIcon}
           subtitle={"120/80"} 
           time={"last update 3m"} 
+          onPress={handleGoPressureScreen}
         />
       </View>
       
