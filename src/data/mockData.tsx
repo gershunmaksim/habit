@@ -21,3 +21,14 @@ export const mockWeightHistoryData: WeightHistoryItemType[] = [
   { id: "1", weight: "60 kg", timeChangedWeight: "12 Oct 7:30 AM" },
   { id: "2", weight: "49 kg", timeChangedWeight: "25 Oct 1:29 PM" },
 ]
+
+export type PressureHistoryItemType = {
+  id: string
+  pressure: string
+  timeChangedPressure: string
+}
+
+export const mockPressureHistoryData: PressureHistoryItemType[] = [
+  { id: "1", pressure: "120/80", timeChangedPressure: "12 Apr 7:30 AM" },
+  { id: "2", pressure: "170/120", timeChangedPressure: "25 May 1:29 PM" },
+]
