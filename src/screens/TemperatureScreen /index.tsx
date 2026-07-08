@@ -31,7 +31,8 @@ const TemperatureScreen: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
       <HeaderComponent title="Temperature" isArrowLeft onPressArrowLeft={handleGoBack} />
-      <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
+      <KeyboardAwareScrollView showsVerticalScrollIndicator={false} enableOnAndroid={true}
+      keyboardShouldPersistTaps="handled">
         <LabelComponent classNameTitle="text-18 font-sans500 text-green1" title="Add temperature"/>
       <View 
         style={{
