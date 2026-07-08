@@ -2,12 +2,14 @@
 import { useNavigation } from "@react-navigation/native"
 import HeaderComponent from "components/HeaderComponent"
 import React, { useState } from "react"
-import { Text, TextInput, View } from "react-native"
+import { FlatList, Text, TextInput, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import ToggleComponent from "components/ToggleComponent"
 import TemperatureComponent from "components/TemperatureComponent"
 import ButtonComponent from "components/ButtonComponent"
 import LabelComponent from "components/LabelComponent"
+import { mockTemperatureHistoryData } from "data/mockData"
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 //Libraries
 //Hooks and Redux
 //Helpers and Types
@@ -29,7 +31,8 @@ const TemperatureScreen: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
       <HeaderComponent title="Temperature" isArrowLeft onPressArrowLeft={handleGoBack} />
-      <LabelComponent classNameTitle="text-18 font-sans500 text-green1" title="Add temperature"/>
+      <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
+        <LabelComponent classNameTitle="text-18 font-sans500 text-green1" title="Add temperature"/>
       <View 
         style={{
           backgroundColor: "#fff",
@@ -106,16 +109,18 @@ const TemperatureScreen: React.FC = () => {
           subtitle="Regular  measurements will help your doctor assess your condition correctly"
         />
 
-        <TemperatureComponent
-          title={"36,6"}
-          subtitle={"8 Oct 1:29 PM"}
-          Icon={FatArrowIcon}
+        <FlatList
+          data={mockTemperatureHistoryData}
+          scrollEnabled={false}
+          renderItem={({ item }) => (
+            <TemperatureComponent
+              title={item.temperature}
+              subtitle={item.timeChangedTemperature}
+              Icon={FatArrowIcon}
+            />
+          )}
         />
-        <TemperatureComponent
-          title={"37,0"}
-          subtitle={"9 Oct 1:29 PM"}
-          Icon={FatArrowIcon}
-        />
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   )
 }
