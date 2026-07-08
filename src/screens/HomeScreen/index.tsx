@@ -23,6 +23,9 @@ const HomeScreen: React.FC<Props> = () => {
   const handleGoTemperatureScreen = () => {
     navigation.navigate("temperature")
   }
+  const handleGoWeightScreen = () => {
+    navigation.navigate("weight")
+  }
   return (
     <SafeAreaView className="flex-1 bg-white1 px-[24px]">
         <HeaderComponent 
@@ -49,6 +52,7 @@ const HomeScreen: React.FC<Props> = () => {
           classNameSubtitle={"text-mainBlack"}
           classNameTime={"text-mainBlack"}
           classNameHistory={"text-mainBlack"}
+          onPress={handleGoWeightScreen}
         />
         <CardItemComponent 
           title={"TEMPERATURE"} 
