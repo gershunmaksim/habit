@@ -5,6 +5,7 @@ import type { RootStackParamList } from "./types"
 import LanguagesScreen from "screens/LanguagesScreen"
 import { ROUTES } from "navigation/routes"
 import TemperatureScreen from "screens/TemperatureScreen "
+import WeightScreen from "screens/WeightScreen"
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -19,6 +20,10 @@ const Navigator = () => {
       <Stack.Screen
         name={ROUTES.TemperatureScreen}
         component={TemperatureScreen}
+      />
+       <Stack.Screen
+        name={ROUTES.WeightScreen}
+        component={WeightScreen}
       />
     </Stack.Navigator>
   )
