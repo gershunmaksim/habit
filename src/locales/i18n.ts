@@ -10,9 +10,9 @@ import ru from "locales/ru.json"
 import moment from "moment"
 
 const translates = {
-  en,
-  uk,
-  ru,
+  en: { translation: en },
+  uk: { translation: uk },
+  ru: { translation: ru },
 }
 
 const fallback = { languageTag: "en", isRTL: true }

@@ -8,7 +8,7 @@ import RadioBtnComponent from "components/RadioBtnComponent"
 import LanguageComponent from "components/LanguageComponent"
 import { Language, languages } from "data/LanguageData"
 import { useTranslation } from "react-i18next"
-import { useTypedSelector } from "store"
+import { useAppDispatch, useTypedSelector } from "store"
 import { setLanguage } from "store/auth/slice"
 import ButtonComponent from "components/ButtonComponent"
 
@@ -18,12 +18,13 @@ const LanguagesScreen: React.FC = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(language)
   const { t, i18n } = useTranslation()
   const navigation = useNavigation()
+  const dispatch = useAppDispatch()
   const handleGoBack = () => {
     navigation.goBack()
   }
   const handleChangeLanguage = () => {
     i18n.changeLanguage(selectedLanguage)
-    setLanguage(selectedLanguage)
+    dispatch(setLanguage(selectedLanguage))
     navigation.goBack()
   }
 
