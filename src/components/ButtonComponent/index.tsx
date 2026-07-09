@@ -19,11 +19,11 @@ const ButtonComponent = ({
 }: ButtonComponentProps
 ) => {
   return (
-      <TouchableOpacity onPress={onPress} className={clsx("bg-blue1 rounded-16 px-[77px] py-[16px] items-center justify-center", classNameBtn )}>
-        <Text className="text-white text-16 font-sans500">
-          {title}
-        </Text>
-      </TouchableOpacity>
+    <TouchableOpacity onPress={onPress} className={clsx("bg-blue1 rounded-16 px-[77px] py-[16px] items-center justify-center", classNameBtn )}>
+      <Text className="text-white text-16 font-sans500">
+        {title}
+      </Text>
+    </TouchableOpacity>
   ) 
 }
 

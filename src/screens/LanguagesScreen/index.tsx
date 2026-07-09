@@ -41,7 +41,7 @@ const LanguagesScreen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white px-[20px]">
+    <SafeAreaView className="flex-1 bg-white mx-[20px]">
       <HeaderComponent title={t("languages")} isArrowLeft onPressArrowLeft={handleGoBack} />
       <View
         style={{
@@ -65,7 +65,9 @@ const LanguagesScreen: React.FC = () => {
           renderItem={({item}) => renderItem(item)}
         />
       </View>
-      <ButtonComponent onPress={handleChangeLanguage} title="Select language"/>
+      <View className="absolute bottom-[32px] w-full">
+        <ButtonComponent onPress={handleChangeLanguage} title="Select language"/>
+      </View>
     </SafeAreaView>
   )
 }
