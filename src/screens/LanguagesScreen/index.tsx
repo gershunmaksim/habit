@@ -55,7 +55,7 @@ const LanguagesScreen: React.FC = () => {
             <SearchIcon/>
             <TextInput 
               className=" text-16 font-sans500 ml-[10px]"
-              placeholder="Search..."
+              placeholder={t("search")}
             />
           </View>
       </View>
@@ -66,7 +66,7 @@ const LanguagesScreen: React.FC = () => {
         />
       </View>
       <View className="absolute bottom-[32px] w-full">
-        <ButtonComponent onPress={handleChangeLanguage} title="Select language"/>
+        <ButtonComponent onPress={handleChangeLanguage} title={t("select_language")}/>
       </View>
     </SafeAreaView>
   )

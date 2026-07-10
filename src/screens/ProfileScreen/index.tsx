@@ -13,12 +13,14 @@ import BellIcon from "assets/icons/bell.svg";
 import LanguageIcon from "assets/icons/language.svg";
 import AffirmlyIcon from "assets/img/Affirmly.png";
 import PillsIcon from "assets/img/pills-alert.png";
+import { useTranslation } from "react-i18next";
 
 const ProfileScreen: React.FC = () => {
   //State, params, redux
   const [isValue, setIsValue] = useState(false)
   const [isMoll, setIsMoll] = useState<"mmol/l" | "kmoll/l">("mmol/l")
   const navigation = useNavigation()
+  const { t } = useTranslation()
   //Refs
   //Functions
   const handleChangeMol = () => {
@@ -32,22 +34,21 @@ const ProfileScreen: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
 
-      <HeaderComponent title="Settings" />
-      <LabelComponent
-      title={"Special Settings"}/>
+      <HeaderComponent title={t("settings")} />
+      <LabelComponent title={t("special_settings")} />
 
       <SettingsItemComponent
-        title="Unit"
+        title={t("unit")}
         subtitle={isMoll}
         SvgIcon={UnitIcon}
         Icon={RightArrowIcon}
         onPress={handleChangeMol}
       />
       <LabelComponent
-      title={"General Settings"}/>
+      title={t("general_settings")}/>
 
       <SettingsItemComponent
-        title="Notifications"
+        title={t("notifications")}
         SvgIcon={BellIcon}
         isToggle
         value={isValue}
@@ -57,13 +58,13 @@ const ProfileScreen: React.FC = () => {
       />
 
       <SettingsItemComponent
-        title="Language"
+        title={t("language")}
         SvgIcon={LanguageIcon}
         Icon={RightArrowIcon}
         onPress={handleGoLanguage}
       />
       <LabelComponent
-      title={"Our other applications"}/>
+      title={t("our_other_applications")}/>
 
       <SettingsItemComponent
         title="Affirmly"

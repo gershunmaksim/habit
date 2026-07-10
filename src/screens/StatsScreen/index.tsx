@@ -9,21 +9,23 @@ import HistoryConeComponent from "components/HistoryConeComponent"
 //styles and Icons
 import GreenConeIcon from "assets/icons/greenCone.svg"
 import RedConeIcon from "assets/icons/redCone.svg"
+import { useTranslation } from "react-i18next"
 
 const StatsScreen: React.FC = () => {
+  const { t } = useTranslation()
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-white px-[24px]">
       <HeaderComponent 
-        title={"History"}
+        title={t("history")}
         />
       <HistoryConeComponent
         Icon={GreenConeIcon}
-        title={"21 March 12:54"}
+        title={t("march")}
         subtitle={"9.0 MMOL"}
       />      
       <HistoryConeComponent
         Icon={RedConeIcon}
-        title={"21 March 12:54"}
+        title={t("march")}
         subtitle={"9.0 MMOL"}
       />
     </SafeAreaView>

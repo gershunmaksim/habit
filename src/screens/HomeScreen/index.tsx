@@ -14,10 +14,12 @@ import SmileIcon from "assets/img/smile.svg"
 import FootstepIcon from "assets/img/footstep.svg"
 import ThermometerIcon from "assets/img/thermometer.svg"
 import HeartIcon from "assets/img/heart.svg"
+import { useTranslation } from "react-i18next"
 
 type Props = TabScreenProps<"home">
 
 const HomeScreen: React.FC<Props> = () => {
+  const { t } = useTranslation()
   const navigation = useNavigation()
 
   const handleGoTemperatureScreen = () => {
@@ -32,51 +34,58 @@ const HomeScreen: React.FC<Props> = () => {
   return (
     <SafeAreaView className="flex-1 bg-white1 px-[24px]">
         <HeaderComponent 
-         title={"Health monitoring"}
+         title={t("health_monitoring")}
          isArrowLeft
          />
 
-      <View className="flex-row align-center flex-wrap gap-[15px] mt-[24px]">
+      <View className="mt-[24px] gap-y-[15px]">
+      
+      {/* Ряд 1 */}
+      <View className="flex-row gap-x-[15px] items-stretch">
         <CardItemComponent 
-          title={"MOOD"} 
+          title={t("mood")} 
           Icon={SmileIcon}
-          subtitle={"Satisfied"} 
-          time={"Yesterday"} 
-          isRightElement={"Add today"} 
-          isHistory={"History"}
+          subtitle={t("satisfied")} 
+          time={t("yesterday")} 
+          isRightElement={t("add_today")} 
+          isHistory={t("history")}
         />
         <CardItemComponent 
-          title={"WEIGHT"} 
+          title={t("weight")}
           Icon={FootstepIcon}
-          subtitle={"58 kg"} 
-          time={"last update 3d"}
-          classNameCard={"bg-orange1"}
-          classNameTitle={"text-mainBlack"}
-          classNameSubtitle={"text-mainBlack"}
-          classNameTime={"text-mainBlack"}
-          classNameHistory={"text-mainBlack"}
+          subtitle={t("kg")} 
+          time={t("last_update_d")}
+          classNameCard="bg-orange1"
+          classNameTitle="text-mainBlack"
+          classNameSubtitle="text-mainBlack"
+          classNameTime="text-mainBlack"
+          classNameHistory="text-mainBlack"
           onPress={handleGoWeightScreen}
         />
+      </View>
+      <View className="flex-row gap-x-[15px] items-stretch">
         <CardItemComponent 
-          title={"TEMPERATURE"} 
+          title={t("temperature")} 
           Icon={ThermometerIcon}
           subtitle={"36,6°C"} 
-          time={"last update 3d"} 
-          classNameCard={"bg-orange1"}
-          classNameTitle={"text-mainBlack"}
-          classNameSubtitle={"text-mainBlack"}
-          classNameTime={"text-mainBlack"}
-          classNameHistory={"text-mainBlack"}
+          time={t("last_update_d")} 
+          classNameCard="bg-orange1"
+          classNameTitle="text-mainBlack"
+          classNameSubtitle="text-mainBlack"
+          classNameTime="text-mainBlack"
+          classNameHistory="text-mainBlack"
           onPress={handleGoTemperatureScreen}
         />
         <CardItemComponent 
-          title={"BLOOD PRESSURE"} 
+          title={t("blood_pressure")} 
           Icon={HeartIcon}
           subtitle={"120/80"} 
-          time={"last update 3m"} 
+          time={t("last_update_m")} 
           onPress={handleGoPressureScreen}
         />
       </View>
+
+    </View>
       
     </SafeAreaView>
   )

@@ -24,9 +24,8 @@ const HistoryConeComponent = ({
       backgroundColor: "#fff",
       borderRadius: 10,
       boxShadow: "0px 2px 8px rgba(0,0,0,0.08)",
-      marginBottom: 20,
     }}
-    className="flex-row items-center justify-between mx-[24px] py-[13px] pl-[16px] pr-[21px] rounded-10 border-1 border-white1">
+    className="flex-row items-center justify-between mt-[20px] py-[13px] px-[18px] rounded-10 border-1 border-white1">
       <View className="flex-row items-center">
         <View className="mr-[15px]">
           <Icon/>

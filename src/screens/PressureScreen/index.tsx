@@ -17,6 +17,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
+import { useTranslation } from "react-i18next"
 
 const PressureScreen: React.FC = () => {
   const [isPressureUp, setIsPressureUp] = useState<string>("120")
@@ -30,12 +31,13 @@ const PressureScreen: React.FC = () => {
   const handleToggleReminder = () => {
     setIsValueUp(val => !val)
   }
+  const { t } = useTranslation()
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
-      <HeaderComponent title="Pressure" isArrowLeft onPressArrowLeft={handleGoBack} />
+      <HeaderComponent title={t("pressure")} isArrowLeft onPressArrowLeft={handleGoBack} />
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false} enableOnAndroid={true}
       keyboardShouldPersistTaps="handled">
-        <LabelComponent classNameTitle="text-18 font-sans500 text-green1" title="Add pressure"/>
+        <LabelComponent classNameTitle="text-18 font-sans500 text-green1" title={t("add_pressure")}/>
       <View 
         style={{
           backgroundColor: "#fff",
@@ -46,7 +48,7 @@ const PressureScreen: React.FC = () => {
         className="justify-between p-[20px] mt-[16px] rounded-10 border-1 border-white1">
           <View className="flex-row items-center justify-between w-full">
             <View>
-              <Text className="text-14 text-gray1 font-sans700">Now</Text>
+              <Text className="text-14 text-gray1 font-sans700">{t("now")}</Text>
             </View>
             <View>
               <FatArrowIcon/>
@@ -78,7 +80,7 @@ const PressureScreen: React.FC = () => {
           </View>
 
          <View className="mt-[16px]">
-          <ButtonComponent title={"Add"} />
+          <ButtonComponent title={t("add")} />
         </View>
         </View>
         <View 
@@ -94,25 +96,25 @@ const PressureScreen: React.FC = () => {
               value={isValueUp}
               onChange={handleToggleReminder}
             />
-            <Text className="text-18 font-sans500 text-green1 ml-[12px]">Remind to measure</Text>
+            <Text className="text-18 font-sans500 text-green1 ml-[12px]">{t("remind_to_measure")}</Text>
           </View>
           <View className="flex-row items-center justify-between mt-[20px]">
             <View>
-              <Text className="text-14 text-green1 font-sans400">Everyday Reminder</Text>
+              <Text className="text-14 text-green1 font-sans400">{t("everyday_reminder")}</Text>
             </View>
             <View className="flex-row items-center">
-              <Text className="text-20 text-green1 font-sans400 mr-[6px]">10 AM</Text>
+              <Text className="text-20 text-green1 font-sans400 mr-[6px]">{t("am")}</Text>
               <FatArrowIcon/>
             </View>
           </View>
           <View className="flex-row items-center pt-[23px]">
             <ReloadIcon/>
-            <Text className="text-14 text-gray2 font-sans400 ml-[8px]">Last Updated: 7 March 10 Am</Text>
+            <Text className="text-14 text-gray2 font-sans400 ml-[8px]">{t("last_updated_march_am")}</Text>
           </View>
         </View>
         <LabelComponent
           classNameTitle="text-18 font-sans500 text-green1"
-          title="History"
+          title={t("history")}
           className="mt-[12px]"
         />
 
