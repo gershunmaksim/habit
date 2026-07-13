@@ -5,6 +5,8 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import HeaderComponent from "components/HeaderComponent"
 import HistoryConeComponent from "components/HistoryConeComponent"
 //Libraries
+import moment from "moment"
+console.log(moment().format("YYYY-MM-DD"));
 //Hooks and Redux
 //styles and Icons
 import GreenConeIcon from "assets/icons/greenCone.svg"

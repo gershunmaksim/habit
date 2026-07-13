@@ -11,6 +11,8 @@ import LabelComponent from "components/LabelComponent"
 import { mockPressureHistoryData, mockWeightHistoryData } from "data/mockData"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 //Libraries
+import moment from "moment"
+console.log(moment().format("YYYY-MM-DD"));
 //Hooks and Redux
 //Helpers and Types
 //styles and Icons
@@ -18,20 +20,27 @@ import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
 import { useTranslation } from "react-i18next"
+import { useTypedSelector } from "store"
+import { useAppDispatch } from "store"
 
 const PressureScreen: React.FC = () => {
-  const [isPressureUp, setIsPressureUp] = useState<string>("120")
-  const [isValueUp, setIsValueUp] = useState(false)
-  const [isPressureDown, setIsPressureDown] = useState<string>("80")
-  const [isValueDown, setIsValueDown] = useState(false)
+  const { blood_pressure } = useTypedSelector((store) => store.auth)
+  
+  const [selectedBlood_Pressure, setSelectedBlood_Pressure] = useState(blood_pressure)
+  const { t, i18n } = useTranslation()
   const navigation = useNavigation()
+  const dispatch = useAppDispatch()
+
+  const [isPressureUp, setIsPressureUp] = useState<string>(blood_pressure)
+  const [isValueUp, setIsValueUp] = useState(false)
+  const [isPressureDown, setIsPressureDown] = useState<string>(blood_pressure)
+  const [isValueDown, setIsValueDown] = useState(false)
   const handleGoBack = () => {
     navigation.goBack()
   }
   const handleToggleReminder = () => {
     setIsValueUp(val => !val)
   }
-  const { t } = useTranslation()
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
       <HeaderComponent title={t("pressure")} isArrowLeft onPressArrowLeft={handleGoBack} />

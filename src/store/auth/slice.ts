@@ -4,12 +4,20 @@ export interface UserState {
   name: string;
   email: string;
   language: string;
+  temperature: string;
+  weight: string;
+  bloodPressureUp: string;
+  bloodPressureDown: string;
 }
 
 const initialState: UserState = {
   name: "",
   email: "",
   language: "en",
+  temperature: "",
+  weight: "",
+  bloodPressureUp: "",
+  bloodPressureDown: ""
 };
 
 const authSlice = createSlice({
@@ -32,6 +40,15 @@ const authSlice = createSlice({
       Object.assign(state, action.payload);
     },
 
+    setTemperature: (state, action: PayloadAction<string>) => {
+      state.temperature = action.payload;
+    },
+    setBloodPressureUp: (state, action: PayloadAction<string>) => {
+      state.bloodPressureUp = action.payload;
+    },
+    setBloodPressureDown: (state, action: PayloadAction<string>) => {
+      state.temperature = action.payload;
+    },
     clearUser: () => initialState,
   },
 });
@@ -41,6 +58,9 @@ export const {
   setEmail,
   setLanguage,
   setUser,
+  setTemperature,
+  setBloodPressureUp,
+  setBloodPressureDown,
   clearUser,
 } = authSlice.actions;
 

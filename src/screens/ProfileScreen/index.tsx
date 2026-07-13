@@ -15,6 +15,9 @@ import AffirmlyIcon from "assets/img/Affirmly.png";
 import PillsIcon from "assets/img/pills-alert.png";
 import { useTranslation } from "react-i18next";
 
+import moment from "moment"
+console.log(moment().format("YYYY-MM-DD"));
+
 const ProfileScreen: React.FC = () => {
   //State, params, redux
   const [isValue, setIsValue] = useState(false)
