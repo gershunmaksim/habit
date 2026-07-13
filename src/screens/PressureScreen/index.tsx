@@ -24,22 +24,22 @@ import { useTypedSelector } from "store"
 import { useAppDispatch } from "store"
 
 const PressureScreen: React.FC = () => {
-  const { blood_pressure } = useTypedSelector((store) => store.auth)
+  const { bloodPressureUp } = useTypedSelector((store) => store.auth)
+  const { bloodPressureDown } = useTypedSelector((store) => store.auth)
   
-  const [selectedBlood_Pressure, setSelectedBlood_Pressure] = useState(blood_pressure)
+  
+  const [selectedBloodPressureUp, setSelectedBloodPressureUp] = useState(bloodPressureUp)
+  const [selectedBloodPressureDown, setSelectedBloodPressureDown] = useState(bloodPressureDown)
   const { t, i18n } = useTranslation()
   const navigation = useNavigation()
   const dispatch = useAppDispatch()
 
-  const [isPressureUp, setIsPressureUp] = useState<string>(blood_pressure)
-  const [isValueUp, setIsValueUp] = useState(false)
-  const [isPressureDown, setIsPressureDown] = useState<string>(blood_pressure)
-  const [isValueDown, setIsValueDown] = useState(false)
+  const [isReminder, setIsReminder] = useState(false)
   const handleGoBack = () => {
     navigation.goBack()
   }
   const handleToggleReminder = () => {
-    setIsValueUp(val => !val)
+    setIsReminder(val => !val)
   }
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
@@ -69,8 +69,8 @@ const PressureScreen: React.FC = () => {
               <TextInput
                 className="w-full text-20 font-sans400 text-green1" 
                 placeholder="120"
-                value={isPressureUp}
-                onChangeText={(isPressure) => setIsPressureUp(isPressure)}
+                value={selectedBloodPressureUp}
+                onChangeText={(isPressure) => setSelectedBloodPressureUp(isPressure)}
                 placeholderTextColor={colors.green1}
               />
             </View>
@@ -81,8 +81,8 @@ const PressureScreen: React.FC = () => {
               <TextInput
                 className="w-full text-20 font-sans400 text-green1" 
                 placeholder="80"
-                value={isPressureDown}
-                onChangeText={(isPressure) => setIsPressureDown(isPressure)}
+                value={selectedBloodPressureDown}
+                onChangeText={(isPressure) => setSelectedBloodPressureDown(isPressure)}
                 placeholderTextColor={colors.green1}
               />
             </View>         
@@ -102,7 +102,7 @@ const PressureScreen: React.FC = () => {
           className="justify-between p-[20px] mt-[16px] rounded-10 border-1 border-white1">
           <View className="flex-row items-center">
             <ToggleComponent
-              value={isValueUp}
+              value={isReminder}
               onChange={handleToggleReminder}
             />
             <Text className="text-18 font-sans500 text-green1 ml-[12px]">{t("remind_to_measure")}</Text>

@@ -18,8 +18,12 @@ import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
 import { useTranslation } from "react-i18next"
+import { useTypedSelector } from "store"
 
 const TemperatureScreen: React.FC = () => {
+  const { temperature } = useTypedSelector((store) => store.auth)
+  const [selectedTemperature, setSelectedTemperature] = useState(temperature)
+  
   const [isTemperature, setIsTemperature] = useState<string>("36.6")
   const [isValue, setIsValue] = useState(false)
   const navigation = useNavigation()
@@ -58,7 +62,7 @@ const TemperatureScreen: React.FC = () => {
               <TextInput
                 className="w-full text-20 font-sans400 text-green1" 
                 placeholder="36,6"
-                value={isTemperature}
+                value={selectedTemperature}
                 onChangeText={(isTemperature) => setIsTemperature(isTemperature)}
                 placeholderTextColor={colors.green1}
               />

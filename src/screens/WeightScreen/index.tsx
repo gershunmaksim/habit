@@ -18,8 +18,12 @@ import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
 import { useTranslation } from "react-i18next"
+import { useTypedSelector } from "store"
 
 const WeightScreen: React.FC = () => {
+  const { weight } = useTypedSelector((store) => store.auth)
+  const [selectedWeight, setSelectedWeight] = useState(weight)
+  
   const [isWeight, setIsWeight] = useState<string>("60")
   const [isValue, setIsValue] = useState(false)
   const navigation = useNavigation()
@@ -58,7 +62,7 @@ const WeightScreen: React.FC = () => {
               <TextInput
                 className="w-full text-20 font-sans400 text-green1" 
                 placeholder="60"
-                value={isWeight}
+                value={selectedWeight}
                 onChangeText={(isWeight) => setIsWeight(isWeight)}
                 placeholderTextColor={colors.green1}
               />

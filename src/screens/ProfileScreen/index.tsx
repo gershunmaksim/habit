@@ -14,13 +14,15 @@ import LanguageIcon from "assets/icons/language.svg";
 import AffirmlyIcon from "assets/img/Affirmly.png";
 import PillsIcon from "assets/img/pills-alert.png";
 import { useTranslation } from "react-i18next";
+import { useAppDispatch, useTypedSelector } from "store"
 
 import moment from "moment"
-console.log(moment().format("YYYY-MM-DD"));
+import { setNotifications } from "store/auth/slice";
 
 const ProfileScreen: React.FC = () => {
+  const { notifications } = useTypedSelector((store) => store.auth)
+  const dispatch = useAppDispatch()
   //State, params, redux
-  const [isValue, setIsValue] = useState(false)
   const [isMoll, setIsMoll] = useState<"mmol/l" | "kmoll/l">("mmol/l")
   const navigation = useNavigation()
   const { t } = useTranslation()
@@ -31,6 +33,9 @@ const ProfileScreen: React.FC = () => {
   }
   const handleGoLanguage = () => {
     navigation.navigate("languages")
+  }
+  const handleToggleNotifications = () => {
+    dispatch(setNotifications(!notifications))
   }
   //Hooks
   //Render
@@ -54,10 +59,8 @@ const ProfileScreen: React.FC = () => {
         title={t("notifications")}
         SvgIcon={BellIcon}
         isToggle
-        value={isValue}
-        onChange={() => {
-          setIsValue(prev => !prev)
-        }}      
+        value={notifications}
+        onChange={handleToggleNotifications}      
       />
 
       <SettingsItemComponent

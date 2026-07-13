@@ -8,6 +8,7 @@ export interface UserState {
   weight: string;
   bloodPressureUp: string;
   bloodPressureDown: string;
+  notifications: boolean;
 }
 
 const initialState: UserState = {
@@ -17,7 +18,8 @@ const initialState: UserState = {
   temperature: "",
   weight: "",
   bloodPressureUp: "",
-  bloodPressureDown: ""
+  bloodPressureDown: "",
+  notifications: false,
 };
 
 const authSlice = createSlice({
@@ -47,7 +49,10 @@ const authSlice = createSlice({
       state.bloodPressureUp = action.payload;
     },
     setBloodPressureDown: (state, action: PayloadAction<string>) => {
-      state.temperature = action.payload;
+      state.bloodPressureDown = action.payload;
+    },
+    setNotifications: (state, action: PayloadAction<boolean>) => {
+      state.notifications = action.payload;
     },
     clearUser: () => initialState,
   },
@@ -62,6 +67,7 @@ export const {
   setBloodPressureUp,
   setBloodPressureDown,
   clearUser,
+  setNotifications,
 } = authSlice.actions;
 
 export default authSlice.reducer;
