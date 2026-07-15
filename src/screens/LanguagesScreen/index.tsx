@@ -11,8 +11,6 @@ import { useTranslation } from "react-i18next"
 import { useAppDispatch, useTypedSelector } from "store"
 import { setLanguage } from "store/auth/slice"
 import ButtonComponent from "components/ButtonComponent"
-import moment from "moment"
-console.log(moment().format("YYYY-MM-DD"));
 
 const LanguagesScreen: React.FC = () => {
   const { language } = useTypedSelector((store) => store.auth)

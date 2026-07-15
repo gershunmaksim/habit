@@ -14,6 +14,8 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import moment from "moment"
 console.log(moment().format("YYYY-MM-DD"));
 //Hooks and Redux
+import { useDispatch } from "react-redux";
+import { setBloodPressureDown, setBloodPressureUp} from "store/auth/slice";
 //Helpers and Types
 //styles and Icons
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
@@ -26,7 +28,6 @@ import { useAppDispatch } from "store"
 const PressureScreen: React.FC = () => {
   const { bloodPressureUp } = useTypedSelector((store) => store.auth)
   const { bloodPressureDown } = useTypedSelector((store) => store.auth)
-  
   
   const [selectedBloodPressureUp, setSelectedBloodPressureUp] = useState(bloodPressureUp)
   const [selectedBloodPressureDown, setSelectedBloodPressureDown] = useState(bloodPressureDown)
@@ -41,6 +42,11 @@ const PressureScreen: React.FC = () => {
   const handleToggleReminder = () => {
     setIsReminder(val => !val)
   }
+  const handleAddPressure = () => {
+    dispatch(setBloodPressureUp(selectedBloodPressureUp));
+    dispatch(setBloodPressureDown(selectedBloodPressureDown));
+    navigation.goBack()
+  };
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
       <HeaderComponent title={t("pressure")} isArrowLeft onPressArrowLeft={handleGoBack} />
@@ -70,7 +76,7 @@ const PressureScreen: React.FC = () => {
                 className="w-full text-20 font-sans400 text-green1" 
                 placeholder="120"
                 value={selectedBloodPressureUp}
-                onChangeText={(isPressure) => setSelectedBloodPressureUp(isPressure)}
+                onChangeText={setSelectedBloodPressureUp}
                 placeholderTextColor={colors.green1}
               />
             </View>
@@ -82,14 +88,17 @@ const PressureScreen: React.FC = () => {
                 className="w-full text-20 font-sans400 text-green1" 
                 placeholder="80"
                 value={selectedBloodPressureDown}
-                onChangeText={(isPressure) => setSelectedBloodPressureDown(isPressure)}
+                onChangeText={setSelectedBloodPressureDown}
                 placeholderTextColor={colors.green1}
               />
             </View>         
           </View>
 
          <View className="mt-[16px]">
-          <ButtonComponent title={t("add")} />
+          <ButtonComponent 
+            title={t("add")}
+            onPress={handleAddPressure}
+          />
         </View>
         </View>
         <View 

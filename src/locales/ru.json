@@ -13,11 +13,10 @@
   "march": "21 Марта 12:54",
   "health_monitoring": "Экран здоровья",
   "mood": "СОСТОЯНИЕ",
-  "satisfied": "Довольный",
   "yesterday": "Вчера",
   "add_today": "Добавить сегодня",
   "weight": "ВЕС",
-  "kg": "58 кг",
+  "kg": "кг",
   "last_update_d": "последнее обновление 3д",
   "temperature": "ТЕМПЕРАТУРА",
   "blood_pressure": "ДАВЛЕНИЕ",
@@ -34,5 +33,10 @@
   "pressure": "Давление",
   "add_pressure": "Добавить давление",
   "weight2": "Вес",
-  "add_weight": "Добавить вес"
+  "add_weight": "Добавить вес",
+  "save_mood": "Сохранить настроение",
+  "satisfied":"Довольный",
+  "good": "Хорошо",
+  "bad": "Плохо",
+  "angry": "Злой"
 }

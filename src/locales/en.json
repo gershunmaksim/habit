@@ -13,11 +13,10 @@
   "march": "21 March 12:54",
   "health_monitoring": "Health monitoring",
   "mood": "MOOD",
-  "satisfied": "Satisfied",
   "yesterday": "Yesterday",
   "add_today": "Add today",
   "weight": "WEIGHT",
-  "kg": "58 kg",
+  "kg": "kg",
   "last_update_d": "last update 3d",
   "temperature": "TEMPERATURE",
   "blood_pressure": "BLOOD PRESSURE",
@@ -34,5 +33,10 @@
   "pressure": "Pressure",
   "add_pressure": "Add pressure",
   "weight2": "Weight",
-  "add_weight": "Add weight"
+  "add_weight": "Add weight",
+  "save_mood": "Save mood",
+  "satisfied":"Satisfied",
+  "good": "Good",
+  "bad": "Bad",
+  "angry": "Angry"
 }

@@ -5,6 +5,7 @@ export interface UserState {
   email: string;
   language: string;
   temperature: string;
+  mood: string;
   weight: string;
   bloodPressureUp: string;
   bloodPressureDown: string;
@@ -20,6 +21,7 @@ const initialState: UserState = {
   bloodPressureUp: "",
   bloodPressureDown: "",
   notifications: false,
+  mood: "satisfied"
 };
 
 const authSlice = createSlice({
@@ -29,19 +31,18 @@ const authSlice = createSlice({
     setName: (state, action: PayloadAction<string>) => {
       state.name = action.payload;
     },
-
     setEmail: (state, action: PayloadAction<string>) => {
       state.email = action.payload;
     },
-
     setLanguage: (state, action: PayloadAction<string>) => {
       state.language = action.payload;
     },
-
     setUser: (state, action: PayloadAction<Partial<UserState>>) => {
       Object.assign(state, action.payload);
     },
-
+    setWeight: (state, action: PayloadAction<string>) => {
+      state.weight = action.payload;
+    },
     setTemperature: (state, action: PayloadAction<string>) => {
       state.temperature = action.payload;
     },
@@ -54,7 +55,10 @@ const authSlice = createSlice({
     setNotifications: (state, action: PayloadAction<boolean>) => {
       state.notifications = action.payload;
     },
-    clearUser: () => initialState,
+    setMood: (state, action) => {
+    state.mood = action.payload;
+  },
+    clearUser: () => ({ ...initialState }),
   },
 });
 
@@ -63,6 +67,8 @@ export const {
   setEmail,
   setLanguage,
   setUser,
+  setWeight,
+  setMood,
   setTemperature,
   setBloodPressureUp,
   setBloodPressureDown,

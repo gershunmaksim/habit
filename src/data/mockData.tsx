@@ -66,3 +66,27 @@ export const mockPressureHistoryData: PressureHistoryItemType[] = [
     timeChangedPressure: moment("2025-05-25 13:29").format("D MMM h:mm A"),
   },
 ];
+
+export type MoodItemType = {
+  id: string;
+  mood: string;
+};
+
+export const mockMoodData: MoodItemType[] = [
+  {
+    id: "1",
+    mood: "Satisfied",
+  },
+  {
+    id: "2",
+    mood: "Good",
+  },
+  {
+    id: "3",
+    mood: "Bad",
+  },
+  {
+    id: "4",
+    mood: "Angry",
+  },
+];

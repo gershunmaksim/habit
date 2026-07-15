@@ -22,7 +22,7 @@ import { useAppDispatch, useTypedSelector } from "store"
 type Props = TabScreenProps<"home">
 
 const HomeScreen: React.FC<Props> = () => {
-  const { bloodPressureUp, bloodPressureDown, weight, temperature } = useTypedSelector((store) => store.auth)
+  const { bloodPressureUp, bloodPressureDown, weight, temperature, mood } = useTypedSelector((store) => store.auth)
 
   const { t, i18n } = useTranslation()
   const navigation = useNavigation()
@@ -36,6 +36,9 @@ const HomeScreen: React.FC<Props> = () => {
   }
   const handleGoPressureScreen = () => {
     navigation.navigate("pressure")
+  }
+  const handleGoMoodScreen = () => {
+    navigation.navigate("mood")
   }
   return (
     <SafeAreaView className="flex-1 bg-white1 px-[24px]">
@@ -51,15 +54,16 @@ const HomeScreen: React.FC<Props> = () => {
         <CardItemComponent 
           title={t("mood")} 
           Icon={SmileIcon}
-          subtitle={t("satisfied")} 
+          subtitle={t(mood)} 
           time={t("yesterday")} 
           isRightElement={t("add_today")} 
           isHistory={t("history")}
+          onPress={handleGoMoodScreen}
         />
         <CardItemComponent 
           title={t("weight")}
           Icon={FootstepIcon}
-          subtitle={`${weight || "-"} kg`}
+          subtitle={`${weight || "-"} ${t("kg")}`}
           time={t("last_update_d")}
           classNameCard="bg-orange1"
           classNameTitle="text-mainBlack"
@@ -73,7 +77,7 @@ const HomeScreen: React.FC<Props> = () => {
         <CardItemComponent 
           title={t("temperature")} 
           Icon={ThermometerIcon}
-          subtitle={temperature || "-"} 
+          subtitle={`${temperature || "-"} C°`} 
           time={t("last_update_d")} 
           classNameCard="bg-orange1"
           classNameTitle="text-mainBlack"

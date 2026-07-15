@@ -12,6 +12,8 @@ import { mockTemperatureHistoryData } from "data/mockData"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 //Libraries
 //Hooks and Redux
+import { useDispatch } from "react-redux";
+import { setTemperature } from "store/auth/slice";
 //Helpers and Types
 //styles and Icons
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
@@ -27,9 +29,14 @@ const TemperatureScreen: React.FC = () => {
   const [isTemperature, setIsTemperature] = useState<string>("36.6")
   const [isValue, setIsValue] = useState(false)
   const navigation = useNavigation()
+  const dispatch = useDispatch();
   const handleGoBack = () => {
     navigation.goBack()
   }
+  const handleAddTemperature = () => {
+    dispatch(setTemperature(selectedTemperature));
+    navigation.goBack()
+  };
   const handleToggleReminder = () => {
     setIsValue(val => !val)
   }
@@ -63,7 +70,7 @@ const TemperatureScreen: React.FC = () => {
                 className="w-full text-20 font-sans400 text-green1" 
                 placeholder="36,6"
                 value={selectedTemperature}
-                onChangeText={(isTemperature) => setIsTemperature(isTemperature)}
+                onChangeText={setSelectedTemperature}
                 placeholderTextColor={colors.green1}
               />
             </View>
@@ -77,7 +84,10 @@ const TemperatureScreen: React.FC = () => {
 
          <View className="mt-[16px]">
        
-          <ButtonComponent title={t("add")} />
+          <ButtonComponent 
+            title={t("add")} 
+            onPress={handleAddTemperature}
+          />
         </View>
         </View>
         <View 

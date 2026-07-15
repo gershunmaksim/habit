@@ -12,6 +12,8 @@ import { mockWeightHistoryData } from "data/mockData"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 //Libraries
 //Hooks and Redux
+import { useDispatch } from "react-redux";
+import { setWeight } from "store/auth/slice";
 //Helpers and Types
 //styles and Icons
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
@@ -20,12 +22,14 @@ import colors from "styles/colors"
 import { useTranslation } from "react-i18next"
 import { useTypedSelector } from "store"
 
+
 const WeightScreen: React.FC = () => {
   const { weight } = useTypedSelector((store) => store.auth)
   const [selectedWeight, setSelectedWeight] = useState(weight)
   
   const [isWeight, setIsWeight] = useState<string>("60")
   const [isValue, setIsValue] = useState(false)
+  const dispatch = useDispatch();
   const navigation = useNavigation()
   const handleGoBack = () => {
     navigation.goBack()
@@ -33,6 +37,11 @@ const WeightScreen: React.FC = () => {
   const handleToggleReminder = () => {
     setIsValue(val => !val)
   }
+  const handleAddWeight = () => {
+    console.log("Pressed", selectedWeight);
+    dispatch(setWeight(selectedWeight));
+    navigation.goBack()
+  };
   const { t } = useTranslation()
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
@@ -61,9 +70,9 @@ const WeightScreen: React.FC = () => {
             <View className="flex-1">
               <TextInput
                 className="w-full text-20 font-sans400 text-green1" 
-                placeholder="60"
                 value={selectedWeight}
-                onChangeText={(isWeight) => setIsWeight(isWeight)}
+                placeholder="60"
+                onChangeText={setSelectedWeight}
                 placeholderTextColor={colors.green1}
               />
             </View>
@@ -74,7 +83,9 @@ const WeightScreen: React.FC = () => {
 
          <View className="mt-[16px]">
        
-          <ButtonComponent title={t("add")} />
+          <ButtonComponent
+           title={t("add")}
+           onPress={handleAddWeight} />
         </View>
         </View>
         <View 
@@ -129,3 +140,5 @@ const WeightScreen: React.FC = () => {
 }
 
 export default WeightScreen
+
+
