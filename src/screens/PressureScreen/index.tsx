@@ -12,6 +12,7 @@ import { mockPressureHistoryData, mockWeightHistoryData } from "data/mockData"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 //Libraries
 import moment from "moment"
+// TO DO: Убрати консоль
 console.log(moment().format("YYYY-MM-DD"));
 //Hooks and Redux
 import { useDispatch } from "react-redux";
@@ -21,6 +22,7 @@ import { setBloodPressureDown, setBloodPressureUp} from "store/auth/slice";
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
+// TO DO: Import не на мiсцях, перевiрити
 import { useTranslation } from "react-i18next"
 import { useTypedSelector } from "store"
 import { useAppDispatch } from "store"

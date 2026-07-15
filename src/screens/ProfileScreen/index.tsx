@@ -13,9 +13,10 @@ import BellIcon from "assets/icons/bell.svg";
 import LanguageIcon from "assets/icons/language.svg";
 import AffirmlyIcon from "assets/img/Affirmly.png";
 import PillsIcon from "assets/img/pills-alert.png";
+// TO DO: Import не на мiсцях, перевiрити
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useTypedSelector } from "store"
-
+// TO DO: Import не на мiсцях, перевiрити
 import moment from "moment"
 import { setNotifications } from "store/auth/slice";
 

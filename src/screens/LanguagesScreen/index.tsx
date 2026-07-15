@@ -1,3 +1,4 @@
+//TO DO: Import не на мiсцях, перевiрити
 import { useNavigation } from "@react-navigation/native"
 import HeaderComponent from "components/HeaderComponent"
 import React, { useState } from "react"

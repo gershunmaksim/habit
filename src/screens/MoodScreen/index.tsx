@@ -1,3 +1,4 @@
+//TO DO: Import не на мiсцях, перевiрити
 import { useNavigation } from "@react-navigation/native"
 import HeaderComponent from "components/HeaderComponent"
 import React, { useState } from "react"
@@ -9,7 +10,7 @@ import { useAppDispatch, useTypedSelector } from "store"
 import ButtonComponent from "components/ButtonComponent"
 import { Mood, moods } from "data/MoodData"
 import { setMood } from "store/auth/slice"
-
+// TO DO: Убрати пустi рядки тут. Для краси та чистоти
 
 const MoodScreen: React.FC = () => {
   const { mood } = useTypedSelector((store) => store.auth)
@@ -40,14 +41,14 @@ const MoodScreen: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-white mx-[20px]">
       <HeaderComponent title={t("mood")} isArrowLeft onPressArrowLeft={handleGoBack} />
-      
+      {/* TO DO: Убрати пустi рядки тут. Для краси та чистоти */}
       <View>
         <FlatList 
           data={moods}
           renderItem={({item}) => renderItem(item)}
         />
       </View>
-      
+      {/* TO DO: Убрати пустi рядки тут. Для краси та чистоти */}
       <View className="absolute bottom-[32px] w-full">
         <ButtonComponent
           onPress={handleChangeMood}

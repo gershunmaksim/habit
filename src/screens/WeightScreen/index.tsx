@@ -19,6 +19,7 @@ import { setWeight } from "store/auth/slice";
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
+// TO DO: Import не на мiсцях, перевiрити
 import { useTranslation } from "react-i18next"
 import { useTypedSelector } from "store"
 
@@ -38,6 +39,7 @@ const WeightScreen: React.FC = () => {
     setIsValue(val => !val)
   }
   const handleAddWeight = () => {
+    // TO DO: Убрати консоль
     console.log("Pressed", selectedWeight);
     dispatch(setWeight(selectedWeight));
     navigation.goBack()

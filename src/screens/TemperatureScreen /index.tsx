@@ -19,6 +19,7 @@ import { setTemperature } from "store/auth/slice";
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
+// TO DO: Import не на мiсцях, перевiрити
 import { useTranslation } from "react-i18next"
 import { useTypedSelector } from "store"
 

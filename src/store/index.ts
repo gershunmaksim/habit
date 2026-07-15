@@ -17,7 +17,17 @@ import authReducer from "./auth/slice";
 const authPersistConfig = {
   key: "auth",
   storage: AsyncStorage,
-  whitelist: ["language"],
+  whitelist: [
+    "language",
+    "temperature",
+    "mood",
+    "weight",
+    "bloodPressureUp",
+    "bloodPressureDown",
+    "notifications",
+    "name",
+    "email",
+  ],
 };
 
 const rootReducer = combineReducers({
