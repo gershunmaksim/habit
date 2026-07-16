@@ -4,6 +4,7 @@ import HeaderComponent from "components/HeaderComponent"
 import React, { useState } from "react"
 import { FlatList, Text, TextInput, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
+import { useTranslation } from "react-i18next"
 import ToggleComponent from "components/ToggleComponent"
 import TemperatureComponent from "components/TemperatureComponent"
 import ButtonComponent from "components/ButtonComponent"
@@ -13,15 +14,13 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 //Libraries
 //Hooks and Redux
 import { useDispatch } from "react-redux";
+import { useTypedSelector } from "store"
 import { setTemperature } from "store/auth/slice";
 //Helpers and Types
 //styles and Icons
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
-// TO DO: Import не на мiсцях, перевiрити
-import { useTranslation } from "react-i18next"
-import { useTypedSelector } from "store"
 
 const TemperatureScreen: React.FC = () => {
   const { temperature } = useTypedSelector((store) => store.auth)

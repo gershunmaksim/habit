@@ -4,6 +4,7 @@ import HeaderComponent from "components/HeaderComponent"
 import React, { useState } from "react"
 import { FlatList, Text, TextInput, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
+import { useTranslation } from "react-i18next"
 import ToggleComponent from "components/ToggleComponent"
 import TemperatureComponent from "components/TemperatureComponent"
 import ButtonComponent from "components/ButtonComponent"
@@ -12,6 +13,7 @@ import { mockWeightHistoryData } from "data/mockData"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 //Libraries
 //Hooks and Redux
+import { useTypedSelector } from "store"
 import { useDispatch } from "react-redux";
 import { setWeight } from "store/auth/slice";
 //Helpers and Types
@@ -19,10 +21,6 @@ import { setWeight } from "store/auth/slice";
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
-// TO DO: Import не на мiсцях, перевiрити
-import { useTranslation } from "react-i18next"
-import { useTypedSelector } from "store"
-
 
 const WeightScreen: React.FC = () => {
   const { weight } = useTypedSelector((store) => store.auth)
@@ -39,8 +37,6 @@ const WeightScreen: React.FC = () => {
     setIsValue(val => !val)
   }
   const handleAddWeight = () => {
-    // TO DO: Убрати консоль
-    console.log("Pressed", selectedWeight);
     dispatch(setWeight(selectedWeight));
     navigation.goBack()
   };

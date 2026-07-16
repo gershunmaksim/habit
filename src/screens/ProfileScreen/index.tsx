@@ -1,24 +1,24 @@
+// React Native and Components
 import React, { useState } from "react";
-import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import { useNavigation } from "@react-navigation/native";
 import HeaderComponent from "components/HeaderComponent";
 import SettingsItemComponent from "components/SettingsItemComponent";
 import LabelComponent from "components/LabelComponent";
-import { useNavigation } from "@react-navigation/native";
-
+//Libraries
+import { useTranslation } from "react-i18next";
+//Hooks and Redux
+import { useAppDispatch, useTypedSelector } from "store"
+import { setNotifications } from "store/auth/slice";
+//Helpers and Types
+import { openUrl } from "helpers/openUrl";
+//styles and Icons
 import UnitIcon from "assets/icons/unit.svg";
 import RightArrowIcon from "assets/icons/rightArrow.svg";
 import BellIcon from "assets/icons/bell.svg";
 import LanguageIcon from "assets/icons/language.svg";
 import AffirmlyIcon from "assets/img/Affirmly.png";
 import PillsIcon from "assets/img/pills-alert.png";
-// TO DO: Import не на мiсцях, перевiрити
-import { useTranslation } from "react-i18next";
-import { useAppDispatch, useTypedSelector } from "store"
-// TO DO: Import не на мiсцях, перевiрити
-import moment from "moment"
-import { setNotifications } from "store/auth/slice";
 
 const ProfileScreen: React.FC = () => {
   const { notifications } = useTypedSelector((store) => store.auth)
@@ -38,8 +38,12 @@ const ProfileScreen: React.FC = () => {
   const handleToggleNotifications = () => {
     dispatch(setNotifications(!notifications))
   }
-  //Hooks
-  //Render
+  const handleOpenAffirmly = () => {
+    openUrl("https://affirmly.app/");
+  };
+  const handleOpenPillsAlert = () => {
+    openUrl("https://pillsalert.com/");
+  };
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
 
@@ -77,12 +81,14 @@ const ProfileScreen: React.FC = () => {
         title="Affirmly"
         Image={AffirmlyIcon}
         Icon={RightArrowIcon}
+        onPress={handleOpenAffirmly}
       />
 
       <SettingsItemComponent
         title="PillsAlert"
         Image={PillsIcon}
         Icon={RightArrowIcon}
+        onPress={handleOpenPillsAlert}
       />
     </SafeAreaView>
   );

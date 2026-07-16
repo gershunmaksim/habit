@@ -2,6 +2,7 @@
 import { useNavigation } from "@react-navigation/native"
 import HeaderComponent from "components/HeaderComponent"
 import React, { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { FlatList, Text, TextInput, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import ToggleComponent from "components/ToggleComponent"
@@ -12,20 +13,17 @@ import { mockPressureHistoryData, mockWeightHistoryData } from "data/mockData"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 //Libraries
 import moment from "moment"
-// TO DO: Убрати консоль
-console.log(moment().format("YYYY-MM-DD"));
 //Hooks and Redux
 import { useDispatch } from "react-redux";
 import { setBloodPressureDown, setBloodPressureUp} from "store/auth/slice";
+import { useTypedSelector } from "store"
+import { useAppDispatch } from "store"
 //Helpers and Types
 //styles and Icons
 import FatArrowIcon from "assets/icons/fat-arrow.svg"
 import ReloadIcon from "assets/icons/reload.svg"
 import colors from "styles/colors"
-// TO DO: Import не на мiсцях, перевiрити
-import { useTranslation } from "react-i18next"
-import { useTypedSelector } from "store"
-import { useAppDispatch } from "store"
+
 
 const PressureScreen: React.FC = () => {
   const { bloodPressureUp } = useTypedSelector((store) => store.auth)

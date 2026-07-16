@@ -1,13 +1,12 @@
 // React Native and Components
 import React, { useState } from "react"
 import { View } from "react-native"
+import { useTranslation } from "react-i18next"
 import { SafeAreaView } from "react-native-safe-area-context"
 import HeaderComponent from "components/HeaderComponent"
 import CardItemComponent from "components/CardItemComponent"
 //Libraries
-import moment from "moment"
-//TO DO: Консоль пишуть в HomeScreen. Але тут вона взагалiне потрiбна!
-console.log(moment().format("YYYY-MM-DD"));
+import { useAppDispatch, useTypedSelector } from "store"
 //Hooks and Redux
 import { useNavigation } from "@react-navigation/native"
 //Helpers and Types
@@ -17,9 +16,6 @@ import SmileIcon from "assets/img/smile.svg"
 import FootstepIcon from "assets/img/footstep.svg"
 import ThermometerIcon from "assets/img/thermometer.svg"
 import HeartIcon from "assets/img/heart.svg"
-//TO DO: Import не на мiсцях, перевiрити
-import { useTranslation } from "react-i18next"
-import { useAppDispatch, useTypedSelector } from "store"
 
 type Props = TabScreenProps<"home">
 
@@ -44,15 +40,12 @@ const HomeScreen: React.FC<Props> = () => {
   }
   return (
     <SafeAreaView className="flex-1 bg-white1 px-[24px]">
-      {/* TO DO: Порiвняти норм, а то не рiвно блок */}
         <HeaderComponent 
-         title={t("health_monitoring")}
-         isArrowLeft
-         />
+          title={t("health_monitoring")}
+          isArrowLeft
+        />
 
       <View className="mt-[24px] gap-y-[15px]">
-      {/* TO DO: що це за комент РЯД 1? Убрати такi коменти треба завжди */}
-      {/* Ряд 1 */}
       <View className="flex-row gap-x-[15px] items-stretch">
         <CardItemComponent 
           title={t("mood")} 
@@ -97,9 +90,7 @@ const HomeScreen: React.FC<Props> = () => {
           onPress={handleGoPressureScreen}
         />
       </View>
-    {/* TO DO: Убрати пустi рядки тут. Для краси та чистоти */}
     </View>
-    {/* TO DO: Убрати пустi рядки тут. Для краси та чистоти */}
     </SafeAreaView>
   )
 }

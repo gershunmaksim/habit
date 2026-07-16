@@ -1,4 +1,4 @@
-//TO DO: Import не на мiсцях, перевiрити
+// React Native and Components
 import { useNavigation } from "@react-navigation/native"
 import HeaderComponent from "components/HeaderComponent"
 import React, { useState } from "react"
@@ -6,11 +6,14 @@ import { FlatList, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import LanguageComponent from "components/LanguageComponent"
 import { useTranslation } from "react-i18next"
-import { useAppDispatch, useTypedSelector } from "store"
 import ButtonComponent from "components/ButtonComponent"
+//Libraries
 import { Mood, moods } from "data/MoodData"
+//Hooks and Redux
 import { setMood } from "store/auth/slice"
-// TO DO: Убрати пустi рядки тут. Для краси та чистоти
+import { useAppDispatch, useTypedSelector } from "store"
+//Helpers and Types
+//styles and Icons
 
 const MoodScreen: React.FC = () => {
   const { mood } = useTypedSelector((store) => store.auth)
@@ -41,14 +44,12 @@ const MoodScreen: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-white mx-[20px]">
       <HeaderComponent title={t("mood")} isArrowLeft onPressArrowLeft={handleGoBack} />
-      {/* TO DO: Убрати пустi рядки тут. Для краси та чистоти */}
       <View>
         <FlatList 
           data={moods}
           renderItem={({item}) => renderItem(item)}
         />
       </View>
-      {/* TO DO: Убрати пустi рядки тут. Для краси та чистоти */}
       <View className="absolute bottom-[32px] w-full">
         <ButtonComponent
           onPress={handleChangeMood}

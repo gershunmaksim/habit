@@ -1,17 +1,19 @@
-//TO DO: Import не на мiсцях, перевiрити
+// React Native and Components
 import { useNavigation } from "@react-navigation/native"
 import HeaderComponent from "components/HeaderComponent"
 import React, { useState } from "react"
-import { FlatList, Text, TextInput, View } from "react-native"
-import SearchIcon from "assets/icons/search.svg"
-import { SafeAreaView } from "react-native-safe-area-context"
-import RadioBtnComponent from "components/RadioBtnComponent"
+import { FlatList, TextInput, View } from "react-native"
 import LanguageComponent from "components/LanguageComponent"
-import { Language, languages } from "data/LanguageData"
+import { SafeAreaView } from "react-native-safe-area-context"
 import { useTranslation } from "react-i18next"
+import ButtonComponent from "components/ButtonComponent"
+//Libraries
+import { Language, languages } from "data/LanguageData"
+//Hooks and Redux
 import { useAppDispatch, useTypedSelector } from "store"
 import { setLanguage } from "store/auth/slice"
-import ButtonComponent from "components/ButtonComponent"
+//styles and Icons
+import SearchIcon from "assets/icons/search.svg"
 
 const LanguagesScreen: React.FC = () => {
   const { language } = useTypedSelector((store) => store.auth)

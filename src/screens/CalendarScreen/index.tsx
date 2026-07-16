@@ -2,8 +2,6 @@ import React from "react"
 import { Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import moment from "moment"
-// TO DO: Убрати консоль
-console.log(moment().format("YYYY-MM-DD"));
 
 const CalendarScreen: React.FC = () => {
   return (
