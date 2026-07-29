@@ -1,9 +1,7 @@
 // React Native and Components
 import React from "react"
 import { View, Text, TouchableOpacity } from "react-native"
-import { SvgProps } from "react-native-svg"
 //Libraries
-import clsx from "clsx"
 //Hooks and Redux
 //styles and Icons
 import BackArrowIcon from "assets/icons/back.svg"

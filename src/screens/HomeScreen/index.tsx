@@ -45,7 +45,7 @@ const HomeScreen: React.FC<Props> = () => {
           isArrowLeft
         />
 
-      <View className="mt-[24px] gap-y-[15px]">
+    <View className="mt-[24px] gap-y-[15px]">
       <View className="flex-row gap-x-[15px] items-stretch">
         <CardItemComponent 
           title={t("mood")} 

@@ -33,7 +33,7 @@ const ProfileScreen: React.FC = () => {
     setIsMoll(prev => prev === "mmol/l" ? "kmoll/l" : "mmol/l")
   }
   const handleGoLanguage = () => {
-    navigation.navigate("languages")
+    navigation.navigate("splash")
   }
   const handleToggleNotifications = () => {
     dispatch(setNotifications(!notifications))

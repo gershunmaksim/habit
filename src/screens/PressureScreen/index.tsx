@@ -9,7 +9,7 @@ import ToggleComponent from "components/ToggleComponent"
 import TemperatureComponent from "components/TemperatureComponent"
 import ButtonComponent from "components/ButtonComponent"
 import LabelComponent from "components/LabelComponent"
-import { mockPressureHistoryData, mockWeightHistoryData } from "data/mockData"
+import { mockPressureHistoryData } from "data/mockData"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 //Libraries
 import moment from "moment"

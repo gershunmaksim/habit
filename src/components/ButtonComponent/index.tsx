@@ -1,7 +1,7 @@
 // React Native and Components
 import clsx from "clsx"
 import React from "react"
-import { Text, Pressable, TouchableOpacity } from "react-native"
+import { Text, TouchableOpacity } from "react-native"
 //Libraries
 //Hooks and Redux
 //styles and Icons

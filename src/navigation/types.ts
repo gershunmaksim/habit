@@ -17,6 +17,7 @@ export type RootStackParamList = {
   [ROUTES.WeightScreen]: undefined
   [ROUTES.PressureScreen]: undefined
   [ROUTES.MoodScreen]: undefined
+  [ROUTES.SplashScreen]: undefined
 }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

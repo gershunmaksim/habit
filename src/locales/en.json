@@ -38,5 +38,10 @@
   "satisfied":"Satisfied",
   "good": "Good",
   "bad": "Bad",
-  "angry": "Angry"
+  "angry": "Angry",
+  "thusday_october": "Thusday, October 15",
+  "today": "Today",
+  "gestational": "Gestational (at 9:45 PM)",
+  "glucose": "Glucose",
+  "mol_at_pm": "5 mol at 10:00 PM"
 }

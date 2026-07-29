@@ -8,6 +8,7 @@ import TemperatureScreen from "screens/TemperatureScreen "
 import WeightScreen from "screens/WeightScreen"
 import PressureScreen from "screens/PressureScreen"
 import MoodScreen from "screens/MoodScreen"
+import SplashScreen from "screens/SplashScreen"
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const Navigator = () => {
@@ -33,6 +34,10 @@ const Navigator = () => {
       <Stack.Screen
         name={ROUTES.MoodScreen}
         component={MoodScreen}
+      />
+      <Stack.Screen
+        name={ROUTES.SplashScreen}
+        component={SplashScreen}
       />
     </Stack.Navigator>
   )

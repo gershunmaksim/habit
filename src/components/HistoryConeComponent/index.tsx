@@ -8,7 +8,7 @@ import { SvgProps } from "react-native-svg"
 
 export interface HistoryConeComponentProps {
   title: string
-  subtitle: string
+  subtitle?: string
   Icon: React.FC<SvgProps>   
 }
 
