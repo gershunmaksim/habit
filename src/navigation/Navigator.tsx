@@ -13,7 +13,14 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const Navigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName={ROUTES.SplashScreen}
+    >
+      <Stack.Screen
+        name={ROUTES.SplashScreen}
+        component={SplashScreen}
+      />
       <Stack.Screen name="MainTabs" component={TabNavigator} />
       <Stack.Screen
         name={ROUTES.LanguagesScreen}
@@ -34,10 +41,6 @@ const Navigator = () => {
       <Stack.Screen
         name={ROUTES.MoodScreen}
         component={MoodScreen}
-      />
-      <Stack.Screen
-        name={ROUTES.SplashScreen}
-        component={SplashScreen}
       />
     </Stack.Navigator>
   )
