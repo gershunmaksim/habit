@@ -41,26 +41,35 @@ const CardItemComponent = ({
 ) => {
   return (
     <TouchableOpacity
-      style={{
-        flexGrow: 1,
-      }}
-      className={clsx("p-[16px] bg-blue1 rounded-[15px]", classNameCard)}
+      className={clsx("p-[16px] bg-blue1 rounded-[15px] flex-1 justify-between", classNameCard)}
       onPress={onPress}
-      >
-      <View className="flex-row items-center justify-between ">
-        <Text className={clsx("text-12 text-sans700", classNameTitle ?? "text-white1")}>{title}</Text>
-        {isRightElement && <Text className={clsx("text-12 text-sans400 underline", classNameTitle ?? "text-white1")}>{isRightElement}</Text>}
+    >
+      <View className="flex-row justify-between">
+        <View>
+          <Text className={clsx("text-12 text-sans700", classNameTitle ?? "text-white1")}>
+          {title}
+        </Text>
+        </View>
+        {isRightElement && (
+          <View className="flex-1 ml-[5px]">
+            <Text className={clsx("text-12 text-sans400 underline", classNameTitle ?? "text-white1")}>
+            {isRightElement}
+          </Text>
+          </View>
+        )}
       </View>
-      <View className="mt-[13px] items-left justify-center ">
+      <View className="mt-[13px] items-start">
         <Icon />
       </View>
-      <View className="flex-row items-center mt-[5px] justify-left">
-        <Text className={clsx("text-16", classNameSubtitle ?? "text-white1")}>
+
+      <View className="mt-[5px] items-start">
+        <Text className={clsx("text-16 font-bold", classNameSubtitle ?? "text-white1")}>
           {subtitle}
         </Text>
       </View>
-      <View className="flex-row items-center mt-[4px] justify-between">
-        <Text className={clsx("text-12", classNameTime ?? "text-white1")}>
+
+      <View className="flex-row items-end mt-[4px] justify-between gap-x-2">
+        <Text className={clsx("text-12 flex-1", classNameTime ?? "text-white1")}>
           {time}
         </Text>
         {isHistory && (

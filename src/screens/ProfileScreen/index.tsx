@@ -1,12 +1,18 @@
+// React Native and Components
 import React, { useState } from "react";
-import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import { useNavigation } from "@react-navigation/native";
 import HeaderComponent from "components/HeaderComponent";
 import SettingsItemComponent from "components/SettingsItemComponent";
 import LabelComponent from "components/LabelComponent";
-import { useNavigation } from "@react-navigation/native";
-
+//Libraries
+import { useTranslation } from "react-i18next";
+//Hooks and Redux
+import { useAppDispatch, useTypedSelector } from "store"
+import { setNotifications } from "store/auth/slice";
+//Helpers and Types
+import { openUrl } from "helpers/openUrl";
+//styles and Icons
 import UnitIcon from "assets/icons/unit.svg";
 import RightArrowIcon from "assets/icons/rightArrow.svg";
 import BellIcon from "assets/icons/bell.svg";
@@ -15,66 +21,74 @@ import AffirmlyIcon from "assets/img/Affirmly.png";
 import PillsIcon from "assets/img/pills-alert.png";
 
 const ProfileScreen: React.FC = () => {
+  const { notifications } = useTypedSelector((store) => store.auth)
+  const dispatch = useAppDispatch()
   //State, params, redux
-  const [isValue, setIsValue] = useState(false)
   const [isMoll, setIsMoll] = useState<"mmol/l" | "kmoll/l">("mmol/l")
   const navigation = useNavigation()
+  const { t } = useTranslation()
   //Refs
   //Functions
   const handleChangeMol = () => {
     setIsMoll(prev => prev === "mmol/l" ? "kmoll/l" : "mmol/l")
   }
   const handleGoLanguage = () => {
-    navigation.navigate("languages")
+    navigation.navigate("splash")
   }
-  //Hooks
-  //Render
+  const handleToggleNotifications = () => {
+    dispatch(setNotifications(!notifications))
+  }
+  const handleOpenAffirmly = () => {
+    openUrl("https://affirmly.app/");
+  };
+  const handleOpenPillsAlert = () => {
+    openUrl("https://pillsalert.com/");
+  };
   return (
     <SafeAreaView className="flex-1 bg-white px-[24px]">
 
-      <HeaderComponent title="Settings" />
-      <LabelComponent
-      title={"Special Settings"}/>
+      <HeaderComponent title={t("settings")} />
+      <LabelComponent title={t("special_settings")} />
 
       <SettingsItemComponent
-        title="Unit"
+        title={t("unit")}
         subtitle={isMoll}
         SvgIcon={UnitIcon}
         Icon={RightArrowIcon}
         onPress={handleChangeMol}
       />
       <LabelComponent
-      title={"General Settings"}/>
+      title={t("general_settings")}/>
 
       <SettingsItemComponent
-        title="Notifications"
+        title={t("notifications")}
         SvgIcon={BellIcon}
         isToggle
-        value={isValue}
-        onChange={() => {
-          setIsValue(prev => !prev)
-        }}      
+        value={notifications}
+        onChange={handleToggleNotifications}      
       />
 
       <SettingsItemComponent
-        title="Language"
+        title={t("language")}
         SvgIcon={LanguageIcon}
         Icon={RightArrowIcon}
         onPress={handleGoLanguage}
       />
       <LabelComponent
-      title={"Our other applications"}/>
+      title={t("our_other_applications")}/>
 
       <SettingsItemComponent
         title="Affirmly"
         Image={AffirmlyIcon}
         Icon={RightArrowIcon}
+        onPress={handleOpenAffirmly}
       />
 
       <SettingsItemComponent
         title="PillsAlert"
         Image={PillsIcon}
         Icon={RightArrowIcon}
+        onPress={handleOpenPillsAlert}
       />
     </SafeAreaView>
   );

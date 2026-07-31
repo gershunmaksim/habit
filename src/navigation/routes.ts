@@ -7,6 +7,8 @@ export const ROUTES = {
   TemperatureScreen: "temperature",
   WeightScreen: "weight",
   PressureScreen: "pressure",
+  MoodScreen: "mood",
+  SplashScreen: "splash",
 } as const
 
 type valueof<T> = T[keyof T]
